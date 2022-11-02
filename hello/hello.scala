@@ -1,4 +1,7 @@
-@main
-def main(): Unit = {
-  println("Hello world!")
+def helloMessage(names: Seq[String]) = {
+  names match
+    case Nil =>
+      "Hello!"
+    case names =>
+      names.mkString("Hello ", ", ", "!")
 }
