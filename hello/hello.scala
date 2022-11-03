@@ -5,3 +5,8 @@ def helloMessage(names: Seq[String]) = {
     case names =>
       names.mkString("Hello ", ", ", "!")
 }
+
+@main
+def main(args: String*): Unit = {
+  println(helloMessage(args))
+}
