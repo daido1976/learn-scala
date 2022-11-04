@@ -1,11 +1,7 @@
 # learn-scala
 
 - Manage project with [Scala CLI](https://scala-cli.virtuslab.org/)
+- [Scala スケーラブルプログラミング 第 4 版](https://www.amazon.co.jp/dp/429501155X)
 - [Scala 研修テキスト](https://scala-text.github.io/scala_text/)
-
-```sh
-# metals が Multi-root Workspaces に対応してないので、一つずつディレクトリを開く必要がある
-# https://github.com/scalameta/metals-feature-requests/issues/87
-$ cd hello/
-$ code .
-```
+- https://github.com/chatwork/scala-quiz
+- https://github.com/fpinscala/fpinscala
