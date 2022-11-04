@@ -5,3 +5,20 @@
 - [Scala 研修テキスト](https://scala-text.github.io/scala_text/)
 - https://github.com/chatwork/scala-quiz
 - https://github.com/fpinscala/fpinscala
+
+## Setup
+
+```sh
+# Require Setup IDE after git clone.
+$ scala-cli setup-ide .
+# Reload the window of IDE may be necessary.
+```
+
+## Run
+
+```sh
+# e.g.
+$ scala-cli hello
+# With Command line arguments
+$ scala-cli hello -- taro shota
+```
