@@ -1,5 +1,6 @@
 package chapter9
 
+// Reduce code duplication.
 object FileMatcher {
   // TODO: Inject from outside.
   private def filesHere = (new java.io.File(".")).listFiles()
@@ -17,18 +18,15 @@ object FileMatcher {
   def filesRegex(query: String) = filesMatching(_.matches(query))
 }
 
-@main
-def main(args: String*): Unit = {
-  FileMatcher.filesEnding(".json").map(_.getName).foreach(println)
-}
-
-// See Test Codes for usage.
+// Simplify client code.
+// NOTE: See Test Codes for usage.
 object ListSearcher {
+  // eq. def containsNeg(nums: List[Int]) = nums.exists(x => x < 0)
   def containsNeg(nums: List[Int]) = nums.exists(_ < 0)
   def containsOdd(nums: List[Int]) = nums.exists(_ % 2 == 1)
 }
 
-// Use loan pattern.
+// Use loan pattern with currying.
 import java.io._
 
 /** Usage: `withPrintWriter(f) { writer => writer.println("some text") }` */
@@ -38,5 +36,25 @@ def withPrintWriter(file: File)(op: PrintWriter => Unit) = {
     op(writer)
   } finally {
     writer.close()
+  }
+}
+// another curried syntax (like JS).
+def withPrintWriter2(file: File) = { (op: PrintWriter => Unit) =>
+  {
+    val writer = new PrintWriter(file)
+    try {
+      op(writer)
+    } finally {
+      writer.close()
+    }
+  }
+}
+
+@main
+def main(args: String*): Unit = {
+  FileMatcher.filesEnding(".json").map(_.getName).foreach(println)
+
+  withPrintWriter(new File("sandbox.txt")) { writer =>
+    writer.println("some text")
   }
 }
