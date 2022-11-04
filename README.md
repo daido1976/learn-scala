@@ -22,3 +22,14 @@ $ scala-cli hello
 # With Command line arguments
 $ scala-cli hello -- taro shota
 ```
+
+## Worksheet
+
+Like a rich REPL.
+
+- https://docs.scala-lang.org/scala3/book/tools-worksheets.html
+- https://scalameta.org/metals/docs/editors/vscode/#worksheets
+
+```
+$ touch sandbox.worksheet.sc
+```
