@@ -21,3 +21,9 @@ object FileMatcher {
 def main(args: String*): Unit = {
   FileMatcher.filesEnding(".json").map(_.getName).foreach(println)
 }
+
+// See Test Codes for usage.
+object ListSearcher {
+  def containsNeg(nums: List[Int]) = nums.exists(_ < 0)
+  def containsOdd(nums: List[Int]) = nums.exists(_ % 2 == 1)
+}
