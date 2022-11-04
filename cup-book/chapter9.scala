@@ -27,3 +27,16 @@ object ListSearcher {
   def containsNeg(nums: List[Int]) = nums.exists(_ < 0)
   def containsOdd(nums: List[Int]) = nums.exists(_ % 2 == 1)
 }
+
+// Use loan pattern.
+import java.io._
+
+/** Usage: `withPrintWriter(f) { writer => writer.println("some text") }` */
+def withPrintWriter(file: File)(op: PrintWriter => Unit) = {
+  val writer = new PrintWriter(file)
+  try {
+    op(writer)
+  } finally {
+    writer.close()
+  }
+}
