@@ -7,3 +7,9 @@ def helloMessage(names: Seq[String]) = {
     case names =>
       names.mkString("Hello ", ", ", "!")
 }
+
+// e.g. $ scala-cli hello -- taro shota
+@main
+def main(args: String*): Unit = {
+  println(helloMessage(args))
+}
