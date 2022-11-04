@@ -17,9 +17,12 @@ def multiTable(end: Int) = {
 @main
 def main(args: String*): Unit = {
   val end = args match {
-    case Nil    => 10
-    case h +: _ => h.toIntOption.getOrElse(10)
-    case _      => return Console.err.println("unrecognized argument!")
+    case Nil => 10
+    case h +: _ =>
+      h.toIntOption match
+        case Some(n) => n
+        case None    => return Console.err.println("please input number!")
+    case _ => return Console.err.println("unrecognized argument!")
   }
   println(multiTable(end))
 }
