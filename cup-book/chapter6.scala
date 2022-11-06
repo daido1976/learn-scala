@@ -1,6 +1,7 @@
 package chapter6
 
-class Rational(n: Int, d: Int) {
+// chapter6,12
+class Rational(n: Int, d: Int) extends Ordered[Rational] {
   require(d != 0)
 
   private val g = gcd(n.abs, d.abs)
@@ -53,6 +54,9 @@ class Rational(n: Int, d: Int) {
 
   // Derive the greatest common divisor with Euclidean Algorithm.
   private def gcd(a: Int, b: Int): Int = if (b == 0) a else gcd(b, a % b)
+
+  override def compare(that: Rational): Int =
+    (this.numerator * that.denominator) - (that.numerator * this.denominator)
 }
 
 @main
